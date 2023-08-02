@@ -9,13 +9,15 @@
 
 **Research:**
 
-	There are various propositions available to estimate depth from RGB images, such as Adabins, DenseDepth, Monodepth, Monodepth2. I have picked **_[Adabins](https://arxiv.org/abs/2011.14141) _**to generate depth maps.
+There are various propositions available to estimate depth from RGB images, such as Adabins, DenseDepth, Monodepth, Monodepth2.
+I have picked [Adabins](https://arxiv.org/abs/2011.14141) to generate depth maps.
 
 **Solution:**
 
 **Step 1:**
 
-First I Extracted 1 image per scanned files provided and saved RGB and Depth map separately. The following is done via **_read_data.py_** script. One sample of the extracted data is as below -
+    First I Extracted 1 image per scanned files provided and saved RGB and Depth map separately.
+    The following is done via read_data.py script. One sample of the extracted data is as below -
 
 
 
@@ -25,7 +27,9 @@ First I Extracted 1 image per scanned files provided and saved RGB and Depth map
 
 Step 2:
 
-	Next I added white padding around the RGB images, this is required to create (640x480) images which is the required input size for adabins to work. The method was performed to keep the main image size and information intact. We need to run **_pad.py _**to complete this step. One output is showcased as below-
+	Next I added white padding around the RGB images, this is required to create (640x480) images
+    which is the required input size for adabins to work. The method was performed to keep the main image size and information intact.
+    We need to run **_pad.py _**to complete this step. One output is showcased as below-
 
 
 ![alt_text](readme_images/fullimg_1.jpg "padded image")
@@ -33,7 +37,9 @@ Step 2:
 
 Step 3:
 
-	Run adabins in colab, upload the images post setup and save outputs to local. The script I have added as git so that the results can be saved too. Find it **_[AdaBinDemo.ipynb](https://github.com/Somroy1993/Demo_asssignments_files/blob/675747672a33f20d53be852fe14cba2b4c1b85e9/AdaBinDemo.ipynb) _**
+	Run adabins in colab, upload the images post setup and save outputs to local.
+    The script I have added as git so that the results can be saved too.
+    Find it AdaBinDemo.ipynb
 
 Points to note, I have used nyu version of the models available for better results. An output is as below - 
 
@@ -44,7 +50,8 @@ Points to note, I have used nyu version of the models available for better resul
 
 Step 4:
 
-	We crop the ROI by using remove_pad.py. We need this step to compare the images with TOF sensor outputs. Post cropping generates output is as below - 
+	We crop the ROI by using remove_pad.py. We need this step to compare the images with TOF sensor outputs.
+    Post cropping generates output is as below - 
 
 
 
@@ -53,7 +60,7 @@ Step 4:
 
 Step 5: 
 
-Now we need to run similarity_check.py to get the comparison of original and predicted depth maps.
+    Now we need to run similarity_check.py to get the comparison of original and predicted depth maps.
 
 Results:
 
